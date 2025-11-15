@@ -129,13 +129,9 @@ DB Schema: notifications
 
 ```
 id: (BIGINT, PK, AUTO_INCREMENT)
-
 event_type: (VARCHAR(100), NOT NULL)
-
 recipient: (VARCHAR(150),NOT NULL)
-
 message: (TEXT, NOT NULL)
-
 sent_at: (TIMESTAMP,NOT NULL)
 ```
 
@@ -159,29 +155,13 @@ Sample JSON:
 DB Schema: audit_logs
 
 ```
-id service_name operation record_id timestamp details
-(BIGINT, PK,
-AUTO_INCREMENT)
+id: (BIGINT, PK, AUTO_INCREMENT)
+service_name: (VARCHAR(100), NOT NULL)
+operation: (VARCHAR(50),NOT NULL)
+record_id: (BIGINT,NOT NULL)
+timestamp: (TIMESTAMP, NOT NULL)
+details: (TEXT,NULL)
 ```
-### (VARCHAR(100),
-
-### NOT NULL)
-
-### (VARCHAR(50),
-
-### NOT NULL)
-
-### (BIGINT,
-
-### NOT NULL)
-
-### (TIMESTAMP,
-
-### NOT NULL)
-
-### (TEXT,
-
-### NULL)
 
 Sample JSON:
 
