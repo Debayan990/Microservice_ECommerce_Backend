@@ -81,18 +81,14 @@ created_at: (TIMESTAMP,NOT NULL)
 ```
 
 Sample JSON:
-
+```
 {
-
 "name": "Wireless Mouse",
-
 "description": "Ergonomic wireless mouse with USB receiver.",
-
 "category": "Electronics",
-
 "createdAt": "2025- 07 - 28T09:00:00"
-
 }
+```
 
 2. Inventory Service
 - Handles inventory tracking and stock operations.
@@ -108,19 +104,14 @@ last_updated: (TIMESTAMP,NOT NULL)
 ```
 
 Sample JSON:
-
+```
 {
-
 "itemId": 1005,
-
 "quantity": 150,
-
 "warehouseLocation": "A1-North",
-
 "lastUpdated": "2025- 07 - 28T10:30:00"
-
-
-### }
+ }
+```
 
 3. Notification Service
 - Sends notifications based on system events.
@@ -136,18 +127,14 @@ sent_at: (TIMESTAMP,NOT NULL)
 ```
 
 Sample JSON:
-
+```
 {
-
 "eventType": "LowStock",
-
 "recipient": "inventory.manager@company.com",
-
 "message": "Stock for item 1005 has dropped below threshold.",
-
 "sentAt": "2025- 07 - 28T11:00:00"
-
 }
+```
 
 4. Audit & Logging Service
 - Tracks and records critical operations.
@@ -164,22 +151,17 @@ details: (TEXT,NULL)
 ```
 
 Sample JSON:
-
+```
 {
-
 "serviceName": "Item Service",
-
 "operation": "DELETE",
-
 "recordId": 1005,
-
 "timestamp": "2025- 07 - 28T12:00:00",
-
 "details": "Item deleted by admin user"
-
 }
+```
 
-API Operations and Integration
+### API Operations and Integration
 
 Each service exposes RESTful APIs with well-structured JSON formats for interoperability.
 
@@ -190,13 +172,13 @@ Validation is enforced at the service layer to ensure data integrity (e.g., requ
 checks).
 
 
-Error Handling
+### Error Handling
 
 - Descriptive error messages returned as JSON.
 - No stack traces exposed to clients.
 - HTTP status codes correctly implemented (201 Created, 200 OK, 400 Bad Request, 404 Not Found).
 
-Testing
+### Testing
 
 - Integration tests for end-to-end API flows.
 - Unit tests for business logic coverage.
