@@ -1,39 +1,53 @@
 ## Implementing Robust Item Loading Functionality for an E-Commerce Platform
 Enabling Seamless Item Integration and Management
 
-# Overview
+### Overview
+
 Below are the typical CRUD (Create, Read, Update, Delete) operations—mapped to HTTP verbs—for
 each microservice in the Item Management System:
 
 **Item Service:**
 
 GET: Retrieve item details
+
 POST: Create a new item
+
 PUT: Update item information
+
 DELETE: Remove an item
 
 **Inventory Service:**
 
 GET: View inventory levels and transactions
+
 POST: Add inventory for an item
+
 PUT: Update inventory records
+
 DELETE: Remove inventory records
 
 **Notification Service:**
 
 GET: View notification logs
+
 POST: Send a new notification
+
 PUT: Update notification settings
+
 DELETE: Remove notification entries
 
 **Audit & Logging Service:**
 
 GET: Retrieve audit logs
+
 POST: Log a new event
+
 PUT: Update log information
+
 DELETE: Remove log entries
 
 Microservice Architecture and Operations
+
 Overview
 
 This system manages item data and related business processes using a modern microservice
@@ -46,8 +60,8 @@ Architecture
 - Authentication & Authorization for microservices
 - RESTful APIs with structured JSON payloads
 - Dedicated database tables per service
-- API Gateway for central routing
-- Service Discovery
+- API Gateway for central routing (optional)
+- Service Discovery (optional)
 - Swagger/OpenAPI for documentation
 - Each service is independently deployable
 
@@ -59,21 +73,12 @@ Microservices Included
 DB Schema: items
 
 ```
-id name description category created_at
-(BIGINT, PK,
-AUTO_INCREMENT)
+id: (BIGINT, PK, AUTO_INCREMENT)
+name: (VARCHAR(150),NOT NULL)
+description: (TEXT, NULL)
+category: (VARCHAR(100),NOT NULL)
+created_at: (TIMESTAMP,NOT NULL)
 ```
-### (VARCHAR(150),
-
-### NOT NULL)
-
-### (TEXT, NULL) (VARCHAR(100),
-
-### NOT NULL)
-
-### (TIMESTAMP,
-
-### NOT NULL)
 
 Sample JSON:
 
@@ -95,21 +100,12 @@ Sample JSON:
 DB Schema: inventory
 
 ```
-id item_id quantity warehouse_location last_updated
-(BIGINT, PK,
-AUTO_INCREMENT)
+id: (BIGINT, PK,AUTO_INCREMENT)
+item_id: (BIGINT, FK)
+quantity: (INT, NOT NULL)
+warehouse_location: (VARCHAR(100), NOT NULL)
+last_updated: (TIMESTAMP,NOT NULL)
 ```
-### (BIGINT, FK) (INT, NOT
-
-### NULL)
-
-### (VARCHAR(100),
-
-### NOT NULL)
-
-### (TIMESTAMP,
-
-### NOT NULL)
 
 Sample JSON:
 
@@ -132,25 +128,16 @@ Sample JSON:
 DB Schema: notifications
 
 ```
-id event_type recipient message sent_at
-(BIGINT, PK,
-AUTO_INCREMENT)
+id: (BIGINT, PK, AUTO_INCREMENT)
+
+event_type: (VARCHAR(100), NOT NULL)
+
+recipient: (VARCHAR(150),NOT NULL)
+
+message: (TEXT, NOT NULL)
+
+sent_at: (TIMESTAMP,NOT NULL)
 ```
-### (VARCHAR(100),
-
-### NOT NULL)
-
-### (VARCHAR(150),
-
-### NOT NULL)
-
-### (TEXT, NOT
-
-### NULL)
-
-### (TIMESTAMP,
-
-### NOT NULL)
 
 Sample JSON:
 
@@ -236,3 +223,5 @@ Testing
 
 Note: Each microservice is independently deployable and can be extended for future needs such as
 analytics, reporting, or third-party integrations.
+
+
